@@ -1,0 +1,109 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Paper Tree
+{% endblock %}
+
+{% block main %}
+    
+<script>
+    function showLoading() {
+        $("#main").fadeOut(500, function() {
+            $("link[href='./static/animation.css']").remove();
+            $("#loading-animation-container").fadeIn(500);
+        });
+    }
+</script>
+
+
+<body>
+
+  <!--  LOADING ANIMATION --------------------------------------------------->
+  <div id="loading-animation-container" style="display: none;">
+    <link rel="stylesheet" href="./static/loading.css">
+    <div class="loading-text">Processing Paper</div>
+      <div class="loader">
+        <div class="container">
+          {% for i in range(100) %}
+            <span></span>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+
+<!--MAIN---------------------------------------------------------------->
+<div id="main">
+<!-- LOGO --------------------------------------------------->
+<link rel="stylesheet" href="./static/animation.css">
+    <div id="logo">
+        <div class="orb"> 
+          <a href="/">
+            <h1>PAPER</h1>
+            <br>
+            <h4>tree</h4>
+          </a> 
+          <div class="wrap">
+            {% for i in range(150) %}
+              <div class="c">          
+                
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+    </div>
+
+<!-- SEARCH ------------------------------------------------------>
+<div class="search">
+  <form action="/search" onsubmit="validateForm(event)">
+    <input id="query" type="text" name="search" placeholder="Search...">
+    <button type="submit">Go</button>
+  </form>
+</div>
+
+<script>
+  function validateForm(event) {
+    const input = document.getElementById('query');
+    if (!input.value) {
+      event.preventDefault();
+      const button = event.target.querySelector('button');
+      button.classList.add('shake');
+      setTimeout(() => button.classList.remove('shake'), 1000);
+    } else {
+      showLoading();
+    }
+  }
+</script>
+
+  
+<!-- RESPONSE ------------------------------------------------------>
+    <div class="response">
+      <ul>
+        {% for paper in response %} 
+        <form action="/summary" method="POST">
+          <div class="entry">
+            <li>
+              <input type="hidden" name="title" value="{{ paper.title['text'] }}">
+              <input type="hidden" name="url" value="{{ paper.link['attrib']['href'] }}">
+              <a href="{{ paper.link['attrib']['href'] }}" id="entry-link"><h4>{{ paper.title['text'] }}</h4></a> 
+              <br>
+                <p>
+                  {% for name in paper.author['names'][:2] %} {{ name }}. {% endfor %}
+                  {% if paper.author['names']|length > 2 %}
+                  <br>
+                    + {{ paper.author['names']|length - 2 }} more contributors...
+                  {% endif %}
+                </p>
+                <br>
+              <p>{{ paper.summary['text'][:250] }}...</p>
+              <button type="submit" class="summarize-button" onclick="showLoading()">Summarize</button>
+            </li>
+          </div>
+        </form>
+        {% endfor %}
+      </ul>
+    </div>
+</div>
+
+</body>
+
+{% endblock %}

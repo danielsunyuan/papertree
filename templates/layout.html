@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+
+<html lang="en" >
+    <head>
+        <meta charset="UTF-8">
+        <!-- Cache it -->
+        <meta http-equiv="Cache-Control" content="max-age=86400">
+        
+        <link rel="stylesheet" href="./static/style.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+        
+        <title>{% block title %}{% endblock %}</title>
+
+        <!--
+        <link rel="stylesheet" href="./static/grid.css">
+        <div class="horizontal-line"></div>
+        <div class="vertical-line"></div>
+        -->
+
+        {% block main %}{% endblock %}
+
+    </head>
+
+</html>

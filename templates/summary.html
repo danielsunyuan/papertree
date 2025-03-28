@@ -1,0 +1,62 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Paper Tree
+{% endblock %}
+
+{% block main %}
+<script>
+    function showLoading() {
+        $("#main").fadeOut(500, function() {
+            $("#loading-animation-container").fadeIn(500);
+        });
+    }
+</script>
+
+<body>
+<div id="main">
+
+    <!-- Home Icon ------------------------------------->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+    <a href="/" class="home-icon" onclick="showLoading();">
+      <i class="fas fa-home"></i>
+    </a>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+          document.querySelector('.home-icon').classList.add('fade-in');
+        });
+    </script>
+
+
+    <!-- Chat box section -->
+    <link rel="stylesheet" href="./static/notch.css">
+    <script type="module" src="./static/notch.js"></script>
+
+    <div id="chatbox">
+        <div id="chat-area">
+
+        </div>
+        <form id='chat-form'>
+                <input type="text" id="user-input">
+                <button class="chat" type="submit">Discuss</button>
+        </form>
+    </div>
+
+<!-- Science paper summary section ---------------------------------------------->
+    <link rel="stylesheet" href="./static/summary.css">
+
+    <div class="paper-summary">
+        <a href={{ paper.url }}><h2>{{ paper.title }}</h2></a>
+        <br>
+        <div id="summary">
+            {% for paragraph in paper["summary"].split('\n\n') %}
+            <p>{{ paragraph }}</p><br>
+            {% endfor %}
+        </div>
+    </div>
+
+</div>
+  
+</body>
+
+{% endblock %}

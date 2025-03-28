@@ -1,0 +1,64 @@
+.pdf-form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: 350px;
+  }
+
+  #main{
+    animation: fadeIn 2s;
+  }
+  
+  .file-upload {
+    margin: 30px;
+  }
+  
+  .choose-file {
+    font-size: 12px;
+    font-weight: bold;
+    color: #333;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+    transition: color 0.3s ease-in-out;
+    
+  }
+
+  .choose-file:hover {
+    background-color: var(--auraColor3);
+    color: #fff;
+  }
+  
+  #input-pdf {
+    display: none;
+  }
+  
+  .upload button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: var(--auraColor3);
+    color: #fff;
+    font-size: 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  .pdf-button:hover {
+    background-color: #3b3b3b;
+  }
+
+  .url-input {
+    margin: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  
+  #url-pdf {
+    padding: 10px;
+    font-size: 12px;
+    border-radius: 5px;
+    border: none;
+  }

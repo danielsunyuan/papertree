@@ -1,0 +1,19 @@
+{
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "logprobs": null,
+      "text": "This paper outlines a representation of quantum computers and provides examples of quantum grammars. It also develops an algebraic approach to high-level quantum languages, with examples of quantum assembly language and quantum C language."
+    }
+  ],
+  "created": 1672920733,
+  "id": "redacted",
+  "model": "text-davinci-003",
+  "object": "text_completion",
+  "usage": {
+    "completion_tokens": 42,
+    "prompt_tokens": 122,
+    "total_tokens": 164
+  }
+}

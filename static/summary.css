@@ -1,0 +1,109 @@
+/* Science paper summary ------------------------------------------------------*/
+.paper-summary {
+    display: flex;
+    flex-direction: column;
+
+    padding: 10px;
+    background-color: transparent;
+    /* border-radius: 5px;
+    border: 3px solid #ccc; */
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    width: 600px;
+    height: 400px;
+
+    animation: fadeIn 1s;
+  }
+  
+  .paper-summary h2 {
+    font-size: 20px;
+    font-weight: 700;
+    margin: 0;
+    color: var(--auraColor2);
+  }
+  
+  .paper-summary p {
+    font-size: 12px;
+    margin: 0;
+    color: #777;
+  }
+
+  /* Chatbox ------------------------------------------------------------------------------*/
+  .chatbox {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 300px;
+    height: 400px;
+    background-color: #f8f8f8;
+    border-radius: 5px;
+  }
+  
+  .chatbox h2 {
+    font-size: 18px;
+    font-weight: 700;
+    margin: 0;
+    padding: 20px 0;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .chatbox .messages::-webkit-scrollbar {
+    width: 0.2em;
+    background-color: transparent;
+    }
+    
+    .chatbox .messages::-webkit-scrollbar-thumb {
+    background-color: transparent;
+    }
+  
+  .chatbox .message {
+    margin: 20px 0;
+  }
+  
+  .chatbox .message.user {
+    text-align: right;
+  }
+  
+  .chatbox .message p {
+    font-size: 14px;
+    font-weight: 400;
+    margin: 0;
+    padding: 5px 10px;
+    background-color: #3498db;
+    color: white;
+    border-radius: 5px;
+  }
+  
+  .chatbox form {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  .chatbox input[type="text"] {
+    flex: 1;
+    height: 30px;
+    padding: 0 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .chatbox input[type="submit"] {
+    width: 80px;
+    height: 30px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .chatbox input[type="submit"]:hover {
+    background-color: #2980b9;
+  }
+  

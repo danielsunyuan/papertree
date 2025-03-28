@@ -1,0 +1,19 @@
+
+
+.horizontal-line {
+  position: absolute; /* position line absolutely */
+  top: 50%; /* center line horizontally */
+  left: 0;
+  right: 0; /* stretch line across entire width of page */
+  height: 1px; /* set line height */
+  background-color: #ccc; /* set line color */
+}
+
+.vertical-line {
+  position: absolute; /* position line absolutely */
+  left: 50%; /* center line vertically */
+  top: 0;
+  bottom: 0; /* stretch line across entire height of page */
+  width: 1px; /* set line width */
+  background-color: #ccc; /* set line color */
+}

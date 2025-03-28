@@ -1,0 +1,96 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Paper Tree
+{% endblock %}
+
+{% block main %}
+
+<body>
+<script>
+    function showLoading() {
+        $("#main").fadeOut(1000, function() {
+            $("link[href='./static/animation.css']").remove();
+            $("#loading-animation-container").fadeIn(1000);
+        });
+    }
+</script>
+
+
+<!--  LOADING ANIMATION --------------------------------------------------->
+    <div id="loading-animation-container" style="display: none;">
+      <link rel="stylesheet" href="./static/loading.css">
+      <div class="loading-text">Processing Paper</div> 
+        <div class="loader">
+          <div class="container">
+            {% for i in range(200) %}
+              <span></span>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+
+<!--MAIN---------------------------------------------------------------->
+<div id="main">
+  <!-- LOGO --------------------------------------------------->
+  <link rel="stylesheet" href="./static/animation.css">
+  <div id="logo">
+    <div class="orb"> 
+      <a href="/"><h1>PAPER</h1>
+        <br>
+      <h4>tree</h4>
+    </a>
+      <div class="wrap">
+        {% for i in range(150) %}
+          <div class="c"></div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+
+  <!-- PDF FILE FORM ------------------------------------------------------>
+  <link href="./static/pdf.css" rel="stylesheet">
+  <div class="upload">
+    <form method="POST" enctype="multipart/form-data" action="/process_pdf" onsubmit="validateForm(event)" class="pdf-form">
+      <div class="file-upload">
+        <br><br><br>
+        <label for="input-pdf" class="choose-file">Choose File</label>
+        <input id="input-pdf" type="file" name="file" accept=".pdf" onchange="updateFileName()">
+        <br>
+        <button type="submit" class="pdf-button">Summarise</button>
+      </div>
+    </form> 
+
+  <!-- PDF URL FORM-->  
+  </div>
+
+
+  <script>
+    function validateForm(event) {
+      var input = document.getElementById("input-pdf");
+      var file = input.files[0];
+      if (!file || file.type !== "application/pdf") {
+          event.preventDefault();
+          const button = event.target.querySelector('button');
+          button.classList.add('shake');
+          setTimeout(() => button.classList.remove('shake'), 1000);
+      } else {
+          showLoading();
+      }
+  }
+  </script>
+
+  <script>
+    function updateFileName() {
+      var input = document.getElementById("input-pdf");
+      var label = document.querySelector(".choose-file");
+      var fileName = input.files[0].name;
+    
+      label.innerHTML = fileName;
+    }  
+  </script>
+</div>
+
+</body>
+
+{% endblock %}

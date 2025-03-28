@@ -1,0 +1,11 @@
+OPENAI ------------------------------------------------------------------------
+# API Keys should be stored as environment variables, not in code or text files
+# export OPENAI_API_KEY=your_api_key_here
+
+NLTK downloader -------------------------------------------------------------
+
+>>> import nltk
+>>> nltk.download()
+
+download punkt package
+

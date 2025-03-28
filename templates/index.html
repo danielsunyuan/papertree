@@ -1,0 +1,75 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Paper Tree
+{% endblock %}
+
+{% block main %}
+
+<body>
+  <script>
+    function showLoading() {
+        $("#main").fadeOut(500, function() {
+            $("link[href='./static/animation.css']").remove();
+            $("#loading-animation-container").fadeIn(500);
+        });
+    }
+</script>
+  <!--  LOADING ANIMATION --------------------------------------------------->
+  <div id="loading-animation-container" style="display: none;">
+    <link rel="stylesheet" href="./static/loading.css">
+      <div class="loader">
+        <div class="container">
+          {% for i in range(100) %}
+            <span></span>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+
+<div id="main">
+<!-- LOGO --------------------------------------------------->
+<link rel="stylesheet" href="./static/animation.css">
+    <div id="logo">
+        <div class="orb"> 
+          <a href="/">
+            <h1>PAPER</h1>
+              <br>
+            <h4>tree</h4>
+          </a> 
+          <div class="wrap">
+            {% for i in range(150) %}
+              <div class="c">          
+                
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+    </div>
+
+<!-- SEARCH ------------------------------------------------------>
+<div class="search">
+  <form action="/search" onsubmit="validateForm(event)">
+    <input type="text" name="search" placeholder="Search..." id="query">
+    <button type="submit">Go</button>
+  </form>
+</div>
+
+<script>
+  function validateForm(event) {
+    const input = document.getElementById('query');
+    if (!input.value) {
+      event.preventDefault();
+      const button = event.target.querySelector('button');
+      button.classList.add('shake');
+      setTimeout(() => button.classList.remove('shake'), 1000);
+    } else {
+      showLoading();
+    }
+  }
+</script>
+</div>
+
+</body>
+
+{% endblock %}
